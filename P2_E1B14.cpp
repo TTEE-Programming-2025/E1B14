@@ -42,4 +42,23 @@ int main (){
     	return 0;
 	}
 	system("cls");
+	do{
+	    printf("--------------------------\n");	
+	    printf("| a. µe¥Xª½¨¤¤T¨¤§Î      |\n");
+	    printf("| b. Åã¥Ü­¼ªkªí          |\n");
+	    printf("| c. µ²§ô                |\n");
+	    printf("--------------------------\n");
+	    letter=getch();
+	    if(letter=='a'||letter=='A'){
+	    	do{
+	    		printf("¿é¤Ja~nªº­^¤å¦r¥À¡G");
+	    		letter2=getch();
+	    		printf("\n");
+	    		if(letter2<'a'||letter2>'n')
+	    		printf("¿é¤Jªº¤£¬Oa~nªº­^¤å¦r¥À¡I\n½Ğ­«·s");
+			}while(letter2<'a'||letter2>'n');
+	    triangle(letter2);
+        }
+	}while(1); 
+ a92e42b (second commit?™æ¬¡?æ­¥?šä??±æ?å­—æ?ä¸‰è?å½¢ï?ä¸¦ç™¼?¾ç©º?¼ç??¸é??‰éŒ¯èª?
 }

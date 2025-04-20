@@ -1,6 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
+void triangle(char a){
+	int n=a;
+	for(int i='a';i<=n;i++){
+		for(int j=(n-'a');j>(i-'a');j--){
+			printf(" ");
+		}
+		for(int k='a';k<=i;k++){
+		   printf("%c",k);
+	    }
+		   printf("\n");
+	}
+}
+2337e13 (third commitä¿®æ”¹äº†ä?è§’å½¢ç©ºæ ¼?„å?é¡Œä¸¦? ä?é¡¯ç¤ºå®Œä?è§’å½¢å¾Œç?æ¸…é™¤?é¢?‡ç?å¾…ä½¿?¨è€…æ???
 int main (){
     char password[4],letter;//«Å§i±K½X¦r¦ê¸òÅÜ¼Æ   
     int a=3;
@@ -49,15 +62,18 @@ int main (){
 	    printf("| c. µ²§ô                |\n");
 	    printf("--------------------------\n");
 	    letter=getch();
+	    system("cls");
 	    if(letter=='a'||letter=='A'){
 	    	do{
 	    		printf("¿é¤Ja~nªº­^¤å¦r¥À¡G");
-	    		letter2=getch();
+	    		letter2=getche();
 	    		printf("\n");
 	    		if(letter2<'a'||letter2>'n')
 	    		printf("¿é¤Jªº¤£¬Oa~nªº­^¤å¦r¥À¡I\n½Ğ­«·s");
 			}while(letter2<'a'||letter2>'n');
 	    triangle(letter2);
+	    getch();
+	    system("cls");
         }
 	}while(1); 
  a92e42b (second commit?™æ¬¡?æ­¥?šä??±æ?å­—æ?ä¸‰è?å½¢ï?ä¸¦ç™¼?¾ç©º?¼ç??¸é??‰éŒ¯èª?

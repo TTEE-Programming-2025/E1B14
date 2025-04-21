@@ -13,7 +13,15 @@ void triangle(char a){
 		   printf("\n");
 	}
 }
-2337e13 (third commitä¿®æ”¹äº†ä?è§’å½¢ç©ºæ ¼?„å?é¡Œä¸¦? ä?é¡¯ç¤ºå®Œä?è§’å½¢å¾Œç?æ¸…é™¤?é¢?‡ç?å¾…ä½¿?¨è€…æ???
+void chenfa(int a){
+	for(int i=1;i<=a;i++){
+		for(int j=1;j<=a;j++){
+			printf("%d*%d=%d ",i,j,i*j);
+		}
+		printf("\n");
+	}
+}
+759336e (forth commit?™æ¬¡?‘å?æ­¥å?äº?9ä¹˜æ?è¡¨ç??¨å?ï¼Œä¸¦?¼ç¾äº†ç©º?¼è??´æ©«è¡Œé?åºå?é¡?
 int main (){
     char password[4],letter;//«Å§i±K½X¦r¦ê¸òÅÜ¼Æ   
     int a=3;
@@ -71,10 +79,24 @@ int main (){
 	    		if(letter2<'a'||letter2>'n')
 	    		printf("¿é¤Jªº¤£¬Oa~nªº­^¤å¦r¥À¡I\n½Ğ­«·s");
 			}while(letter2<'a'||letter2>'n');
-	    triangle(letter2);
-	    getch();
-	    system("cls");
+	        triangle(letter2);
+	        getch();
+	        system("cls");
         }
+        if(letter=='b'||letter=='B'){
+        	int n;
+	    	do{
+	    		printf("¿é¤J1~9ªº¾ã¼Æn¡G");
+	    		fflush(stdin);
+	    		scanf("%d",&n);
+	    		printf("\n");
+	    		if(n<1||n>9)
+	    		printf("¿é¤Jªº¤£¬O¿é¤J1~9ªº¾ã¼Æn¡G¡I\n½Ğ­«·s");
+			}while(n<1||n>9);
+		    chenfa(n);
+		    getch();
+	        system("cls");
+		}
 	}while(1); 
  a92e42b (second commit?™æ¬¡?æ­¥?šä??±æ?å­—æ?ä¸‰è?å½¢ï?ä¸¦ç™¼?¾ç©º?¼ç??¸é??‰éŒ¯èª?
 }

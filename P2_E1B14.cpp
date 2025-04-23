@@ -2,12 +2,12 @@
 #include<stdlib.h>
 #include<conio.h>
 void triangle(char a){
-	int n=a;
-	for(int i='a';i<=n;i++){
-		for(int j=(n-'a');j>(i-'a');j--){
+	int ch=a;
+	for(int i='a';i<=ch;i++){
+		for(int j=(ch-'a');j>(i-'a');j--){
 			printf(" ");
 		}
-		for(int k='a';k<=i;k++){
+		for(int k='a'+(ch-i);k<=ch;k++){
 		   printf("%c",k);
 	    }
 		   printf("\n");
@@ -16,7 +16,9 @@ void triangle(char a){
 void chenfa(int a){
 	for(int i=1;i<=a;i++){
 		for(int j=1;j<=a;j++){
-			printf("%d*%d=%d ",i,j,i*j);
+			printf("%d*%d=%d  ",j,i,i*j);
+			if(i*j<10)
+			printf(" ");
 		}
 		printf("\n");
 	}

@@ -1,40 +1,41 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
+//¦L¥X¦r¥À¤T¨¤§Î°Æ¨ç¦¡ 
 void triangle(char a){
 	int ch=a;
-	for(int i='a';i<=ch;i++){
-		for(int j=(ch-'a');j>(i-'a');j--){
+	for(int i='a';i<=ch;i++)/*­n¦L¥X´X¦æ*/{
+		for(int j=(ch-'a');j>(i-'a');j--)/*¨C¦æªºªÅ®æ*/{
 			printf(" ");
 		}
-		for(int k='a'+(ch-i);k<=ch;k++){
+		for(int k='a'+(ch-i);k<=ch;k++)/*¨C¦æªº¦r¥À*/{
 		   printf("%c",k);
 	    }
 		   printf("\n");
 	}
-}
+} 
+//¦L¥X¤E¤E­¼ªkªí°Æ¨ç¦¡
 void chenfa(int a){
-	for(int i=1;i<=a;i++){
-		for(int j=1;j<=a;j++){
+	for(int i=1;i<=a;i++)/*¦L¥X´X­Ó¾î¦æ*/{
+		for(int j=1;j<=a;j++)/*¦L¥X¤@­Ó¾î¦æªº­¼ªk*/{
 			printf("%d*%d=%d  ",j,i,i*j);
-			if(i*j<10)
+			if(i*j<10)/*¦pªG­¼¿n¬°­Ó¦ì¼Æ«h¸ÉªÅ®æ*/
 			printf(" ");
 		}
 		printf("\n");
 	}
 }
-759336e (forth commit?™æ¬¡?‘å?æ­¥å?äº?9ä¹˜æ?è¡¨ç??¨å?ï¼Œä¸¦?¼ç¾äº†ç©º?¼è??´æ©«è¡Œé?åºå?é¡?
 int main (){
-    char password[4],letter;//«Å§i±K½X¦r¦ê¸òÅÜ¼Æ   
+    char password[4],letter,letter2,end;//«Å§i±K½X¦r¦ê¸òÅÜ¼Æ   
     int a=3;
     printf("================================================\n");
     printf("||                                            ||\n");
-    printf("||     _/                         ______      ||\n");
-    printf("||    /______/¡Ã¡Ã¡Ã\\       _____/  ___/      ||\n");
-    printf("||  ¡m  Kawasaki     \\-----/   ____/   \\      ||\n");
-    printf("||    \\______                _/  ____   \\     ||\n");
-    printf("||      /¡Ã\\ \\_            _/   /    \\        ||\n");
-    printf("||      \\__/   \\__________/     \\____/        ||\n");
+    printf("||     _/                                     ||\n");
+    printf("||    /______/¡Ã¡Ã¡Ã\\         __________      ||\n");
+    printf("||  ¡m___/           \\-------/  _______/      ||\n");
+    printf("||    \\______  Kawasaki       _/ ___  \\       ||\n");
+    printf("||      /¡Ã\\ \\_         /   _/  /   \\  \\      ||\n");
+    printf("||      \\__/   \\_______/___/    \\___/         ||\n");
     printf("||                                            ||\n");
     printf("||************\"³o¬O¤@¥x¥éÁÉÀÉ¨®\"**************||\n");
     printf("||                                            ||\n");
@@ -55,25 +56,30 @@ int main (){
             password[i]=getche();
         }
         printf("\n");
-        a--;
-        if(password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5'){
+        a--;/*¨C¿é¤J¤@¦¸±K½X¦¸¼Æ´î¤@*/
+        if((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a!=0){
             printf("±K½X¿ù»~¡AÁÙ³Ñ%d¦¸¾÷·|¡I\n",a);
 		}
-    }while((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a>0);
+    }while((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a>0)/*§PÂ_¨C¤@­Ó±K½X¬O§_¥¿½T*/;
     if((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a==0){
     	printf("±K½X¿ù»~¤T¦¸¡A¨S¾÷·|¤F¡I");
     	return 0;
 	}
 	system("cls");
 	do{
-	    printf("--------------------------\n");	
-	    printf("| a. µe¥Xª½¨¤¤T¨¤§Î      |\n");
-	    printf("| b. Åã¥Ü­¼ªkªí          |\n");
-	    printf("| c. µ²§ô                |\n");
-	    printf("--------------------------\n");
+	    printf(" /\\=============================/\\\n");
+		printf("(                                 )\n");
+		printf("(   \\\\\\    ¡´     3    ¡´   \\\\\\     )\n");	
+		printf("(                                 )\n");
+	    printf("( ¿é¤J'A'or'a'   µe¥Xª½¨¤¤T¨¤§Î ~ )\n");
+	    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");	
+	    printf("( ¿é¤J'B'or'b'   Åã¥Ü­¼ªkªí ~     )\n");
+	    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+	    printf("( ¿é¤J'C'or'c'   µ²§ô ~           )\n");
+	    printf(" \\/===========\\/===\\/===========\\/ \n");
 	    letter=getch();
 	    system("cls");
-	    if(letter=='a'||letter=='A'){
+	    if(letter=='A'||letter=='a')/*¿é¤J'A'or'a'*/{
 	    	do{
 	    		printf("¿é¤Ja~nªº­^¤å¦r¥À¡G");
 	    		letter2=getche();
@@ -81,11 +87,11 @@ int main (){
 	    		if(letter2<'a'||letter2>'n')
 	    		printf("¿é¤Jªº¤£¬Oa~nªº­^¤å¦r¥À¡I\n½Ğ­«·s");
 			}while(letter2<'a'||letter2>'n');
-	        triangle(letter2);
+	        triangle(letter2);/*¦L¥X¹ïÀ³¤T¨¤§Î*/
 	        getch();
 	        system("cls");
         }
-        if(letter=='b'||letter=='B'){
+        if(letter=='B'||letter=='b')/*¿é¤J'B'or'b'*/{
         	int n;
 	    	do{
 	    		printf("¿é¤J1~9ªº¾ã¼Æn¡G");
@@ -95,10 +101,31 @@ int main (){
 	    		if(n<1||n>9)
 	    		printf("¿é¤Jªº¤£¬O¿é¤J1~9ªº¾ã¼Æn¡G¡I\n½Ğ­«·s");
 			}while(n<1||n>9);
-		    chenfa(n);
+		    chenfa(n);/*¦L¥X¹ïÀ³¤E¤E­¼ªkªí*/
 		    getch();
 	        system("cls");
 		}
+		if(letter=='C'||letter=='c')/*¿é¤J'C'or'c'*/{
+	    	printf("'Continue? (y/n)'");
+	    	end=getch();
+	    	printf("\n");
+	    	while(end!='Y'&&end!='y'&&end!='N'&&end!='n')/*¿é¤J«Dy,n§Y­«·s¿é¤J*/{
+	    		printf("WRONG ! \n'Please Answer (y/n)'\n");
+	    	    printf("'Continue? (y/n)'");
+	    	    end=getch();
+				printf("\n");	
+			}
+	    	if(end=='Y'||end=='y')/*¿é¤Jy¦^¨ì°j°é°_ÂI*/{
+	    		system("cls");
+	    		continue;
+			}
+			else/*¿é¤Jnµ²§ôµ{¦¡*/{
+				return 0;
+			}
+		}
 	}while(1); 
- a92e42b (second commit?™æ¬¡?æ­¥?šä??±æ?å­—æ?ä¸‰è?å½¢ï?ä¸¦ç™¼?¾ç©º?¼ç??¸é??‰éŒ¯èª?
 }
+/*³z¹L³o¦¸ªº§@·~½m²ß¡A§Ú§ó¥[¼ô±x¤F for °j°é¡Bwhile °j°é»P do-while °j°éªºÀ³¥Î¤è¦¡¡A
+¤]¹ê»Ú¾Ş§@¤F¦r¤¸°}¦Cªº¨Ï¥Î¡AÂÇ¥Ñ±N±K½X¦s©ñ©ó¦r¤¸°}¦C¤¤¡A¨Ã¥[¥H§PÂ_¿é¤J¬O§_¥¿½T¡C
+°£¦¹¤§¥~¡A§Ú¤]·s¾Ç²ß¨Ã¼ô±x¤F°Æµ{¦¡ªº·§©À¡A¤F¸Ñ¦p¦ó«Å§i¡B©w¸q¥H¤Î©I¥s°Æµ{¦¡¡A
+¶i¦ÓÅı¾ãÅéµ{¦¡§ó¥[¦³±ø²z¡A¨Ã¦³®Ä¹F¦¨§Ú©Ò¹w´Áªº¥\¯à»P®ÄªG¡C*/ 

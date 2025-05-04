@@ -12,9 +12,58 @@ void show(char arr[9][9]){
 		printf("\n");
 	} 
 }
+void change(char arr[9][9],int people){
+	if(people>=1&&people<=3){
+		int x,y,count;
+		switch(people){
+			case 1:
+				while(1){
+					x=rand()%(9-(people-1));
+					y=rand()%9;
+					if(arr[y][x]=='-'){
+						arr[y][x]='@';
+						break;
+					}
+				}
+				break;
+			case 2:
+				while(1){
+					x=rand()%(9-(people-1));
+					y=rand()%9;
+					if(arr[y][x]=='-'&&arr[y][x+1]=='-'){
+						arr[y][x]='@';
+						arr[y][x+1]='@';
+						break;
+					}
+				}
+				break;
+			case 3:
+				while(1){
+					x=rand()%(9-(people-1));
+					y=rand()%9;
+					if(arr[y][x]=='-'&&arr[y][x+1]=='-'&&arr[y][x+2]=='-'){
+						arr[y][x]='@';
+						arr[y][x+1]='@';
+						arr[y][x+2]='@';
+						break;
+					}
+				}
+				break;	
+		}
+	}
+	else{
+		
+	}
+}
+void back(){
+	
+}
+void confirm(){
+	
+}
 int main (){
     char password[4],seat[9][9],word;//«Å§i±K½X¦r¦ê¸òÅÜ¼Æ   
-    int a=3,times=0,x,y;
+    int a=3,times=0,x,y,people;
     printf("================================================\n");
     printf("||                                            ||\n");
     printf("||     _/                                     ||\n");
@@ -80,6 +129,14 @@ int main (){
         	system("cls");
         	show(seat);
         	system("pause");
-		} 
+		}
+		if(word=='b'){
+        	system("cls");
+        	printf("How many seat do you want?(1~4)\n");
+        	scanf("%d",&people);
+        	change(seat,people);
+        	show(seat);
+        	system("pause");
+		}  
 	}while(1);
 }

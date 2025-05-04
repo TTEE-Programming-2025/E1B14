@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<time.h>
+void show(char arr[9][9]){
+	printf("\\123456789\n");
+	for(int i=0;i<9;i++){
+		printf("%d",i+1);
+		for(int j=0;j<9;j++){
+			printf("%c",arr[i][j]);
+		}
+		printf("\n");
+	} 
+}
+int main (){
+    char password[4],seat[9][9],word;//宣告密碼字串跟變數   
+    int a=3,times=0,x,y;
+    printf("================================================\n");
+    printf("||                                            ||\n");
+    printf("||     _/                                     ||\n");
+    printf("||    /______/￣￣￣\\         __________      ||\n");
+    printf("||  《___/           \\-------/  _______/      ||\n");
+    printf("||    \\______  Kawasaki       _/ ___  \\       ||\n");
+    printf("||      /￣\\ \\_         /   _/  /   \\  \\      ||\n");
+    printf("||      \\__/   \\_______/___/    \\___/         ||\n");
+    printf("||                                            ||\n");
+    printf("||************\"這是一台仿賽檔車\"**************||\n");
+    printf("||                                            ||\n");
+    printf("================================================\n");
+    printf("||                                            ||\n");
+    printf("||                E1B14江柏億                 ||\n");
+    printf("||               程式設計作業二               ||\n");
+    printf("||                                            ||\n");
+    printf("||********************************************||\n");
+    printf("||                                            ||\n");
+    printf("||             請輸入四位數密碼：             ||\n");
+    printf("||                                            ||\n");
+    printf("||********************************************||\n");
+    printf("================================================\n");
+    printf("--------------->");
+    do{
+    	for(int i=0;i<4;i++){
+            password[i]=getche();
+        }
+        printf("\n");
+        a--;/*每輸入一次密碼次數減一*/
+        if((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a!=0){
+            printf("密碼錯誤，還剩%d次機會！\n",a);
+		}
+    }while((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a>0)/*判斷每一個密碼是否正確*/;
+    if((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a==0){
+    	printf("密碼錯誤三次，沒機會了！");
+    	return 0;
+	}
+	system("cls");
+	for(int i=0;i<9;i++){
+		for(int j=0;j<9;j++){
+			seat[i][j]='-';
+		}
+	}
+	srand(time(NULL));
+	while(times<10){
+		x=rand()%9;
+		y=rand()%9;
+		if(seat[x][y]=='-'){
+		    seat[x][y]='*';
+		    times++;
+	    }
+	}
+	do{
+		system("cls");
+		printf("----------[Booking System]----------\n");
+		printf("|   a. Available seats             |\n");
+		printf("|   b. Arrange for you             |\n");
+		printf("|   c. Choose by yourself          |\n");
+		printf("|   d. Exit                        |\n");
+        printf("------------------------------------\n");
+        word=getch();
+        if(word=='a'){
+        	system("cls");
+        	show(seat);
+        	system("pause");
+		} 
+	}while(1);
+}

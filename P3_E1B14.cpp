@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<time.h>
+#include<string.h>
 void show(char arr[9][9]){
 	printf("\\123456789\n");
 	for(int i=0;i<9;i++){
@@ -95,6 +96,34 @@ void confirm(char arr[9][9]){
 		}
 	} 
 }
+void choose(char arr[9][9]){
+	char seat[101]={0},*cut;
+	int wrong=0,x,y;
+	do{
+		wrong=0;
+		back(arr);
+		printf("Please enter the seat you want(ex:1-2,2-9) : ");
+		fgets(seat,sizeof(seat),stdin);
+		for(int i=0;seat[i]!='\n';i++){
+			if(seat[i]=='\n'){
+				seat[i]='\0';
+				break;
+			}
+		}
+		cut=strtok(seat,",");
+		while(cut!=NULL){
+			if(sscanf(cut,"%d-%d",&x,&y)!=2||x>9||x<1||y>9||y<1||arr[x-1][y-1]=='@'||arr[x-1][y-1]=='*'){
+				wrong=1;
+				break;
+			}
+			arr[x-1][y-1]='@';
+			cut=strtok(NULL,",");
+		}
+		if(wrong==1){
+			printf("Wrong enter type or seat already taken !\n");
+		}
+	}while(wrong!=0);
+}
 int main (){
     char password[4],seat[9][9],word;//«Å§i±K½X¦r¦ê¸òÅÜ¼Æ   
     int a=3,times=0,x,y,people;
@@ -171,7 +200,20 @@ int main (){
         	system("cls");
         	change(seat,people);
         	show(seat);
-        	printf("Are you ok?(y/n)");
+        	printf("Are you satisfied with your seat?(y/n)");
+        	word=getch();
+        	if(word=='y')
+        	confirm(seat);
+        	if(word=='n')
+        	back(seat);
+		}
+		if(word=='c'){
+        	system("cls");
+        	show(seat);
+        	choose(seat);
+        	system("cls");
+        	show(seat);
+        	printf("Are you satisfied with your seat?(y/n)");
         	word=getch();
         	if(word=='y')
         	confirm(seat);

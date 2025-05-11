@@ -125,14 +125,14 @@ void choose(char arr[9][9]){
 	}while(wrong!=0);
 }
 int main (){
-    char password[4],seat[9][9],word;//宣告密碼字串跟變數   
+    char password[5],right[5]="2025",seat[9][9],word;//宣告密碼字串跟變數   
     int a=3,times=0,x,y,people;
     printf("================================================\n");
     printf("||                                            ||\n");
     printf("||     _/                                     ||\n");
     printf("||    /______/￣￣￣\\         __________      ||\n");
     printf("||  《___/           \\-------/  _______/      ||\n");
-    printf("||    \\______  Kawasaki       _/ ___  \\       ||\n");
+    printf("||    \\______  Suzuki         _/ ___  \\       ||\n");
     printf("||      /￣\\ \\_         /   _/  /   \\  \\      ||\n");
     printf("||      \\__/   \\_______/___/    \\___/         ||\n");
     printf("||                                            ||\n");
@@ -154,13 +154,14 @@ int main (){
     	for(int i=0;i<4;i++){
             password[i]=getche();
         }
+        password[5]='\0';
         printf("\n");
         a--;/*每輸入一次密碼次數減一*/
-        if((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a!=0){
+        if(strcmp(password,right)!=0&&a!=0){
             printf("密碼錯誤，還剩%d次機會！\n",a);
 		}
-    }while((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a>0)/*判斷每一個密碼是否正確*/;
-    if((password[0]!='2'||password[1]!='0'||password[2]!='2'||password[3]!='5')&&a==0){
+    }while(strcmp(password,right)!=0&&a>0)/*判斷每一個密碼是否正確*/;
+    if(strcmp(password,right)!=0&&a==0){
     	printf("密碼錯誤三次，沒機會了！");
     	return 0;
 	}
@@ -195,13 +196,21 @@ int main (){
 		}
 		if(word=='b'){
         	system("cls");
-        	printf("How many seat do you want?(1~4)\n");
-        	scanf("%d",&people);
+        	do{
+        		printf("How many seat do you want(1~4) ?\n");
+        		scanf("%d",&people);
+        		if(people<1||people>4)
+        		printf("Wrong number of people !\n");
+			}while(people<1||people>4); 
         	system("cls");
         	change(seat,people);
         	show(seat);
-        	printf("Are you satisfied with your seat?(y/n)");
-        	word=getch();
+        	do{
+        		printf("Are you satisfied with your seat?(y/n)");
+        	    word=getch();
+        	    if(word!='y'&&word!='n')
+        	    printf("Please enter 'y' or 'n' !\n");
+			}while(word!='y'&&word!='n');
         	if(word=='y')
         	confirm(seat);
         	if(word=='n')
@@ -213,12 +222,29 @@ int main (){
         	choose(seat);
         	system("cls");
         	show(seat);
-        	printf("Are you satisfied with your seat?(y/n)");
-        	word=getch();
+        	do{
+        		printf("Are you satisfied with your seat?(y/n)");
+        	    word=getch();
+        	    if(word!='y'&&word!='n')
+        	    printf("Please enter 'y' or 'n' !\n");
+			}while(word!='y'&&word!='n');
         	if(word=='y')
         	confirm(seat);
         	if(word=='n')
         	back(seat);
+		}
+		if(word=='d'){
+			system("cls");
+			do{
+        		printf("\'Continue? (y/n)\'");
+        	    word=getch();
+        	    if(word!='y'&&word!='n')
+        	    printf("Please enter 'y' or 'n' !\n");
+			}while(word!='y'&&word!='n');
+			if(word=='y')
+        	continue;
+        	if(word=='n')
+        	return 0;
 		}  
 	}while(1);
 }

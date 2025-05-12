@@ -5,7 +5,7 @@
 #include<string.h>
 void show(char arr[9][9])/*Show the seat of now*/{
 	printf("\\123456789\n");
-	for(int i=0;i<9;i++){
+	for(int i=8;i>=0;i--){
 		printf("%d",i+1);
 		for(int j=0;j<9;j++){
 			printf("%c",arr[i][j]);

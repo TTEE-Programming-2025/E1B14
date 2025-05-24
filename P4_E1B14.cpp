@@ -59,12 +59,23 @@ void input(struct grades arr[10],int n){
 }
 void show(struct grades arr[10],int n){
 	for(int i=0;i<n;i++){
-		printf("學生：%s  學號：%6s  數學：%d  物理：%d  英文：%d  平均分：%.1f\n",arr[i].name,arr[i].id,arr[i].math,arr[i].phy,arr[i].eng,arr[i].avg);
+		printf("學生：%8s  學號：%6s  數學：%d  物理：%d  英文：%d  平均分：%.1f\n",arr[i].name,arr[i].id,arr[i].math,arr[i].phy,arr[i].eng,arr[i].avg);
 	}
+}
+void search(struct grades arr[10],char searchname[20],int a){
+	int find=0;
+	for(int i=0;i<a;i++){
+		if(strcmp(arr[i].name,searchname)==0){
+			printf("學生：%8s  學號：%6s  數學：%3d  物理：%3d  英文：%3d  平均分：%.1f\n",arr[i].name,arr[i].id,arr[i].math,arr[i].phy,arr[i].eng,arr[i].avg);
+			find++;
+		}
+	}
+	if(find==0)
+	printf("查無此姓名！\n");
 }
 int main (){
 	struct grades student[10];
-	char password[5],right[5]="2025",word;
+	char password[5],right[5]="2025",word,who[20];
     int a=3,people;
     printf("================================================\n");
     printf("||                                            ||\n");
@@ -129,5 +140,12 @@ int main (){
          	show(student,people);
          	system("pause");
 		 }
-	}while(1);/*Loop the main menu until the user chooses to exit*/
+		 if(word=='c'){
+         	system("cls");
+         	printf("輸入要搜尋的姓名：");
+         	scanf("%s",who);
+         	search(student,who,people);
+         	system("pause");
+		 }
+	}while(1);/*執行迴圈直到使用者選擇離開*/
 }

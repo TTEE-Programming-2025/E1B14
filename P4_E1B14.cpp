@@ -73,8 +73,21 @@ void search(struct grades arr[10],char searchname[20],int a){
 	if(find==0)
 	printf("查無此姓名！\n");
 }
+void change(struct grades oldarr[10],struct grades newarr[10],int a){
+	struct grades empty;
+	newarr=oldarr;
+	for(int i=0;i<a-1;i++){
+		for(int j=0;j<a-i-1;j++){
+			if(newarr[j].avg<newarr[j+1].avg){
+				empty=newarr[j];
+				newarr[j]=newarr[j+1];
+				newarr[j+1]=empty;
+			}
+		}
+	}
+}
 int main (){
-	struct grades student[10];
+	struct grades student[10],avgarr[10];
 	char password[5],right[5]="2025",word,who[20];
     int a=3,people;
     printf("================================================\n");
@@ -145,6 +158,12 @@ int main (){
          	printf("輸入要搜尋的姓名：");
          	scanf("%s",who);
          	search(student,who,people);
+         	system("pause");
+		 }
+		 if(word=='d'){
+         	system("cls");
+         	change(student,avgarr,people);
+         	show(avgarr,people);
          	system("pause");
 		 }
 	}while(1);/*執行迴圈直到使用者選擇離開*/

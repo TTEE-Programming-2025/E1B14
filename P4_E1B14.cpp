@@ -54,6 +54,12 @@ void input(struct grades arr[10],int n){
 			printf("輸入錯誤！請重新輸入！\n");
 		}while(arr[i].eng<0||arr[i].eng>100);
 		system("cls");
+		arr[i].avg=(arr[i].math+arr[i].phy+arr[i].eng)/3.0;
+	}
+}
+void show(struct grades arr[10],int n){
+	for(int i=0;i<n;i++){
+		printf("學生：%s  學號：%6s  數學：%d  物理：%d  英文：%d  平均分：%.1f\n",arr[i].name,arr[i].id,arr[i].math,arr[i].phy,arr[i].eng,arr[i].avg);
 	}
 }
 int main (){
@@ -109,9 +115,19 @@ int main (){
         printf("------------------------------------\n");
          word=getch();
          if(word=='a'){
-         	printf("輸入一整數n：");
-         	scanf("%d",&people);
+         	system("cls");
+         	do{
+         		printf("輸入一整數n(5~10)：");
+         	    scanf("%d",&people);
+         	    if(people<5||people>10)
+         	    printf("輸入錯誤！請重新輸入！\n");
+			 }while(people<5||people>10);
          	input(student,people);
+		 }
+		 if(word=='b'){
+         	system("cls");
+         	show(student,people);
+         	system("pause");
 		 }
 	}while(1);/*Loop the main menu until the user chooses to exit*/
 }
